@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESXi Host License Information</title>
+</head>
+<body>
+    <h1>ESXi Host License Information</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Hostname</th>
+                <th>License</th>
+                <th>Expiration Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for host in esxi_data %}
+            <tr>
+                <td>{{ host.hostname }}</td>
+                <td>{{ host.license }}</td>
+                <td>{{ host.expiration_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br/>
+    <a href="/download">Download CSV</a>
+</body>
+</html>
